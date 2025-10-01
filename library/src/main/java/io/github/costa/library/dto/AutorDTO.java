@@ -1,9 +1,6 @@
 package io.github.costa.library.dto;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -18,6 +15,8 @@ public record AutorDTO(
         LocalDate dataNascimento,
         @NotBlank(message = "Campo obrigatorio")
         @Size(max = 50, min = 2, message = "Campo fora do tamanho padrão")
-        String nacionalidade
+        String nacionalidade,
+
+        UUID idEndereco
 ) {
 }

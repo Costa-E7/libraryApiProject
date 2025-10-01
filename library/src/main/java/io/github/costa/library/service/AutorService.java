@@ -21,6 +21,7 @@ public class AutorService {
     private final AutorRepository repository;
     private final AutorValidator validator;
     private final LivroRepository livroRepository;
+    private final EnderecoService enderecoService;
 
     public Autor save(Autor autor) {
         validator.validar(autor);
