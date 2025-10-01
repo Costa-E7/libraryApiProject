@@ -45,10 +45,7 @@ public class Autor {
             fetch = FetchType.LAZY
     )
     @JsonBackReference
-    @JoinColumn(name = "id_autor")
-    private Autor autor;
-
-    @Column(name = "endereço", length = 10, nullable = false)
+    @JoinColumn(name = "id_endereco")
     private Endereco endereco;
 
     @CreatedDate
