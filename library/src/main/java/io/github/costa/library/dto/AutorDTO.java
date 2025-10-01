@@ -1,11 +1,9 @@
-package io.github.costa.library.controler.dto;
+package io.github.costa.library.dto;
 
-import io.github.costa.library.model.Autor;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 import java.util.UUID;

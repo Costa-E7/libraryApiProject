@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public record CadastroLivroDto(
+public record CadastroLivroDTO(
         @ISBN
         @NotBlank(message = "campo Obrigatorio")
         String isbn,

@@ -1,5 +1,6 @@
 package io.github.costa.library.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -40,6 +41,16 @@ public class Autor {
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
     private List<Livro> livros;
 
+    @OneToOne(
+            fetch = FetchType.LAZY
+    )
+    @JsonBackReference
+    @JoinColumn(name = "id_autor")
+    private Autor autor;
+
+    @Column(name = "endereço", length = 10, nullable = false)
+    private Endereco endereco;
+
     @CreatedDate
     @Column(name = "data_cadastro", updatable = false, nullable = false)
     private LocalDateTime dataCadastro;
@@ -48,6 +59,4 @@ public class Autor {
     @Column(name = "data_atualizacao")
     private LocalDateTime dataAtualizacao;
 
-    @Column(name = "id_usuario")
-    private UUID idUsuario;
 }

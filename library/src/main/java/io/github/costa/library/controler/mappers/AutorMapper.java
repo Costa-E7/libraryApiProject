@@ -1,6 +1,6 @@
 package io.github.costa.library.controler.mappers;
 
-import io.github.costa.library.controler.dto.AutorDTO;
+import io.github.costa.library.dto.AutorDTO;
 import io.github.costa.library.model.Autor;
 import org.mapstruct.Mapper;
 

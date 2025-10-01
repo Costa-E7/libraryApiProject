@@ -2,7 +2,7 @@ package io.github.costa.library.controler;
 
 import io.github.costa.library.controler.mappers.AutorMapper;
 import io.github.costa.library.service.AutorService;
-import io.github.costa.library.controler.dto.AutorDTO;
+import io.github.costa.library.dto.AutorDTO;
 import io.github.costa.library.model.Autor;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

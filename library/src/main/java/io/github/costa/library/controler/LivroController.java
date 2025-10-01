@@ -2,7 +2,7 @@ package io.github.costa.library.controler;
 
 
 import io.github.costa.library.controler.mappers.LivroMapper;
-import io.github.costa.library.dto.CadastroLivroDto;
+import io.github.costa.library.dto.CadastroLivroDTO;
 import io.github.costa.library.dto.ResultadoPesquisaLivroDTO;
 import io.github.costa.library.model.GeneroLivro;
 import io.github.costa.library.model.Livro;
@@ -22,7 +22,7 @@ public class LivroController implements GenericController {
     private final LivroMapper mapper;
 
     @PostMapping
-    public ResponseEntity<Void> salvar(@RequestBody @Valid CadastroLivroDto dto) {
+    public ResponseEntity<Void> salvar(@RequestBody @Valid CadastroLivroDTO dto) {
         Livro livro = mapper.toEntity(dto);
         service.save(livro);
         var url = gerarHeaderLocation(livro.getId());
@@ -77,7 +77,7 @@ public class LivroController implements GenericController {
     @PutMapping("/{id}")
     public ResponseEntity<Object> atualizar(
             @PathVariable("id") String id,
-            @RequestBody @Valid CadastroLivroDto dto
+            @RequestBody @Valid CadastroLivroDTO dto
     ){
         return service.obterPorId(id)
                 .map(livro -> {
