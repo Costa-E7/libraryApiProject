@@ -40,11 +40,4 @@ public class Endereco {
     @Column(name = "numero", length = 10, nullable = false)
     private  String numero;
 
-    @OneToOne(
-            fetch = FetchType.LAZY
-    )
-    @JsonBackReference
-    @JoinColumn(name = "id_autor")
-    private Autor autor;
-
 }
