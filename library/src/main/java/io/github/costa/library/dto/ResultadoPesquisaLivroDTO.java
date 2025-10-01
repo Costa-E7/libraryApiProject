@@ -1,6 +1,5 @@
 package io.github.costa.library.dto;
 
-import io.github.costa.library.controler.dto.AutorDTO;
 import io.github.costa.library.model.GeneroLivro;
 
 import java.math.BigDecimal;
