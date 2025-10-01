@@ -11,7 +11,7 @@ public record EnderecoRequestDTO(
         String cep,
 
         @NotBlank(message = "Número da casa é obrigatório")
-        String numero,
+        String numeroEndereco,
 
         String complemento  // opcional
 ) { }

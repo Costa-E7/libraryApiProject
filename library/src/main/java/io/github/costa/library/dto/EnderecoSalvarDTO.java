@@ -1,5 +1,6 @@
 package io.github.costa.library.dto;
 
+import io.github.costa.library.model.Autor;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
@@ -27,5 +28,5 @@ public record EnderecoSalvarDTO(
         @NotBlank(message = "UF é obrigatório")
         String uf,
 
-        String estado  // opcional
+        String estado // opcional
 ) { }
