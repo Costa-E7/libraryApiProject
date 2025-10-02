@@ -1,1 +1,5 @@
-Comandos de docker em: comandosDocker para ajudar a rodar a aplicacao 
+## 🐳 Comandos Docker
+
+Os comandos para rodar a aplicação estão no arquivo: comandosDockker
+
+## Versao Java 21
