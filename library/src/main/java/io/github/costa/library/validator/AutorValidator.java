@@ -1,8 +1,8 @@
 package io.github.costa.library.validator;
 
 import io.github.costa.library.exceptions.RegistroDuplicadoException;
-import io.github.costa.library.model.Autor;
-import io.github.costa.library.repository.AutorRepository;
+import io.github.costa.library.model.jpa.Autor;
+import io.github.costa.library.repository.jpa.AutorRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

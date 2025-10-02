@@ -1,4 +1,4 @@
-package io.github.costa.library.model;
+package io.github.costa.library.model.jpa;
 
 public enum GeneroLivro {
     FICCAO,

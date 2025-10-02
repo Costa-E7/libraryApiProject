@@ -1,8 +1,8 @@
 package io.github.costa.library.service;
 
-import io.github.costa.library.model.GeneroLivro;
-import io.github.costa.library.model.Livro;
-import io.github.costa.library.repository.LivroRepository;
+import io.github.costa.library.model.jpa.GeneroLivro;
+import io.github.costa.library.model.jpa.Livro;
+import io.github.costa.library.repository.jpa.LivroRepository;
 import io.github.costa.library.validator.LivroValidador;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

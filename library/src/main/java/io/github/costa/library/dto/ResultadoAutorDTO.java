@@ -1,6 +1,6 @@
 package io.github.costa.library.dto;
 
-import io.github.costa.library.model.Endereco;
+import io.github.costa.library.model.jpa.Endereco;
 import java.time.LocalDate;
 import java.util.UUID;
 

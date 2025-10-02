@@ -1,6 +1,6 @@
-package io.github.costa.library.repository;
+package io.github.costa.library.repository.jpa;
 
-import io.github.costa.library.model.Endereco;
+import io.github.costa.library.model.jpa.Endereco;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

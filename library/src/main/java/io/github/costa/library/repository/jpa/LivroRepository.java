@@ -1,8 +1,8 @@
-package io.github.costa.library.repository;
+package io.github.costa.library.repository.jpa;
 
-import io.github.costa.library.model.Autor;
-import io.github.costa.library.model.GeneroLivro;
-import io.github.costa.library.model.Livro;
+import io.github.costa.library.model.jpa.Autor;
+import io.github.costa.library.model.jpa.GeneroLivro;
+import io.github.costa.library.model.jpa.Livro;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

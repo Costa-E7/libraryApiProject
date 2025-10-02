@@ -2,8 +2,8 @@ package io.github.costa.library.validator;
 
 import io.github.costa.library.exceptions.CampoInvalidoException;
 import io.github.costa.library.exceptions.RegistroDuplicadoException;
-import io.github.costa.library.model.Livro;
-import io.github.costa.library.repository.LivroRepository;
+import io.github.costa.library.model.jpa.Livro;
+import io.github.costa.library.repository.jpa.LivroRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

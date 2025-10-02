@@ -1,6 +1,6 @@
 package io.github.costa.library.dto;
 
-import io.github.costa.library.model.Autor;
+import io.github.costa.library.model.jpa.Autor;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 

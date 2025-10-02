@@ -1,6 +1,6 @@
 package io.github.costa.library.dto;
 
-import io.github.costa.library.model.GeneroLivro;
+import io.github.costa.library.model.jpa.GeneroLivro;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;

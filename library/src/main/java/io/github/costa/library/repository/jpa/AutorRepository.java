@@ -1,6 +1,6 @@
-package io.github.costa.library.repository;
+package io.github.costa.library.repository.jpa;
 
-import io.github.costa.library.model.Autor;
+import io.github.costa.library.model.jpa.Autor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;

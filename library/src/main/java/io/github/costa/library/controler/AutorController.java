@@ -5,7 +5,7 @@ import io.github.costa.library.dto.AtualizacaoAutor;
 import io.github.costa.library.dto.ResultadoAutorDTO;
 import io.github.costa.library.service.AutorService;
 import io.github.costa.library.dto.AutorDTO;
-import io.github.costa.library.model.Autor;
+import io.github.costa.library.model.jpa.Autor;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

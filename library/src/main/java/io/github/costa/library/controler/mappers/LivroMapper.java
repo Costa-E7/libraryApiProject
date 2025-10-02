@@ -2,8 +2,8 @@ package io.github.costa.library.controler.mappers;
 
 import io.github.costa.library.dto.CadastroLivroDTO;
 import io.github.costa.library.dto.ResultadoPesquisaLivroDTO;
-import io.github.costa.library.model.Livro;
-import io.github.costa.library.repository.AutorRepository;
+import io.github.costa.library.model.jpa.Livro;
+import io.github.costa.library.repository.jpa.AutorRepository;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package io.github.costa.library.dto;
 
-import io.github.costa.library.model.GeneroLivro;
+import io.github.costa.library.model.jpa.GeneroLivro;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

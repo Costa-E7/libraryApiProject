@@ -5,6 +5,7 @@ import io.github.costa.library.dto.EnderecoSalvarDTO;
 import io.github.costa.library.dto.EnderecoViaCepDTO;
 import io.github.costa.library.exceptions.OperacaoNaoPermitidaException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,7 +15,6 @@ public class ViaCepService {
 
     private final RestTemplate restTemplate;
     private final   EnderecoMapper mapper;
-
 
     public EnderecoSalvarDTO buscar(String cep, String numero, String complemento) {
         String cepFormatado = cep.replaceAll("\\D", "");

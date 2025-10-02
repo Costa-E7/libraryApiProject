@@ -1,6 +1,7 @@
-package io.github.costa.library.model;
+package io.github.costa.library.model.jpa;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
@@ -8,41 +9,42 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table
+@Table(name = "autor")
 @Data
+@ToString(exclude = "livros")
 @EntityListeners(AuditingEntityListener.class)
-public class Livro {
+public class Autor {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "isbn", length = 20, nullable = false)
-    private String isbn;
+    @Column(name = "nome", length = 100, nullable = false)
+    private String nome;
 
-    @Column(name = "titulo", length = 150, nullable = false)
-    private String titulo;
+    @Column(name = "data_nascimento",  nullable = false)
+    private LocalDate dataNascimento;
 
-    @Column(name = "data_publicacao", nullable = false)
-    private LocalDate dataPublicacao;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "genero", length = 30, nullable = false)
-    private GeneroLivro genero;
+    @Column(name = "nacionalidade", length = 50,  nullable = false)
+    private String nacionalidade;
 
-    @Column(name = "preco", precision = 18, scale = 2)
-    private BigDecimal preco;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
+    private List<Livro> livros;
 
-    @ManyToOne()
+    @OneToOne(
+            cascade = CascadeType.PERSIST
+    )
     @JsonBackReference
-    @JoinColumn(name = "id_autor")
-    private Autor autor;
+    @JoinColumn(name = "id_endereco")
+    private Endereco endereco;
 
     @CreatedDate
     @Column(name = "data_cadastro", updatable = false, nullable = false)

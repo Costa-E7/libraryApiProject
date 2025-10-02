@@ -3,8 +3,8 @@ package io.github.costa.library.service;
 import io.github.costa.library.controler.mappers.EnderecoMapper;
 import io.github.costa.library.dto.EnderecoRequestDTO;
 import io.github.costa.library.dto.EnderecoSalvarDTO;
-import io.github.costa.library.model.Endereco;
-import io.github.costa.library.repository.EnderecoRepository;
+import io.github.costa.library.model.jpa.Endereco;
+import io.github.costa.library.repository.jpa.EnderecoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

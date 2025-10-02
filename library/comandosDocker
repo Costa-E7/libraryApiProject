@@ -1,0 +1,5 @@
+#criar container com banco mongoDb
+docker run -d --name meu_mongo -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin123 -v mongo_data:/data/db mongo:7.0
+
+#criar container com banco postgres
+docker run --name librarydb -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=library -d postgres:16.3

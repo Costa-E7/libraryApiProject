@@ -1,7 +1,7 @@
 package io.github.costa.library.repository.specs;
 
-import io.github.costa.library.model.GeneroLivro;
-import io.github.costa.library.model.Livro;
+import io.github.costa.library.model.jpa.Livro;
+import io.github.costa.library.model.jpa.GeneroLivro;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
 import org.springframework.data.jpa.domain.Specification;
