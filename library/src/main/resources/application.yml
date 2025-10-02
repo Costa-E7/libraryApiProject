@@ -1,14 +1,27 @@
 spring:
+  profiles:
+    active: prod
   application:
     name: library
+
   datasource:
     url: jdbc:postgresql://localhost:5432/library
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
+
+  data:
+    mongodb:
+      uri: mongodb://admin:admin123@localhost:27017/library?authSource=admin
+
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
     properties:
       hibernate.format_sql: true
+
+myapp:
+  api:
+    viaCepDev: http://localhost:8089/ws/%s/json/
+    viaCepProd: https://viacep.com.br/ws/
