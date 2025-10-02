@@ -16,9 +16,6 @@ public record EnderecoSalvarDTO(
         @NotBlank(message = "Complemento é obrigatório")
         String complemento,
 
-        @NotBlank(message = "Logradouro é obrigatório")
-        String logradouro,
-
         @NotBlank(message = "Bairro é obrigatório")
         String bairro,
 

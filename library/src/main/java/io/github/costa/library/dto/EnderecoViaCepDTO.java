@@ -5,7 +5,7 @@ public record EnderecoViaCepDTO(
         String cep,
         String logradouro,
         String bairro,
-        String cidade, // cidade
+        String localidade, // cidade
         String uf,
         String estado
 ) { }

@@ -19,17 +19,14 @@ public class Endereco {
     @Column(name = "cep", length = 15)
     private String cep;
 
-    @Column(name = "logradouro", length = 200)
-    private String logradouro;
-
-    @Column(name = "complemento", length = 50, nullable = false)
+    @Column(name = "complemento", length = 50)
     private String complemento;
 
     @Column(name = "bairro", length = 200)
     private String bairro;
 
     @Column(name = "cidade", length = 100)
-    private String localidade;
+    private String cidade;
 
     @Column(name = "uf", length = 2)
     private String uf;
@@ -39,5 +36,8 @@ public class Endereco {
 
     @Column(name = "numero", length = 10, nullable = false)
     private  String numero;
+
+    @OneToOne(mappedBy = "endereco")
+    private Autor autor;
 
 }

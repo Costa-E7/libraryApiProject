@@ -23,10 +23,9 @@ public class AutorController implements GenericController {
     private final AutorMapper mapper;
 
     @PostMapping
-    public ResponseEntity<Void> salvar(@RequestBody @Valid AutorDTO autor) {
-        Autor autorEntidade = mapper.toEntity(autor);
-        service.save(autorEntidade);
-        URI location = gerarHeaderLocation(autorEntidade.getId());
+    public ResponseEntity<Void> salvar(@RequestBody @Valid AutorDTO autorDTO) {
+        Autor autor = service.save(autorDTO);
+        URI location = gerarHeaderLocation(autor.getId());
         return ResponseEntity.created(location).build();
     }
 

@@ -1,10 +1,16 @@
 package io.github.costa.library.service;
 
+import io.github.costa.library.controler.mappers.AutorMapper;
+import io.github.costa.library.controler.mappers.EnderecoMapper;
+import io.github.costa.library.dto.AutorDTO;
+import io.github.costa.library.dto.EnderecoSalvarDTO;
 import io.github.costa.library.exceptions.OperacaoNaoPermitidaException;
 import io.github.costa.library.model.Autor;
+import io.github.costa.library.model.Endereco;
 import io.github.costa.library.repository.AutorRepository;
 import io.github.costa.library.repository.LivroRepository;
 import io.github.costa.library.validator.AutorValidator;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -22,8 +28,19 @@ public class AutorService {
     private final AutorValidator validator;
     private final LivroRepository livroRepository;
     private final EnderecoService enderecoService;
+    private final AutorMapper mapper;
+    private final EnderecoMapper enderecoMapper;
 
-    public Autor save(Autor autor) {
+    @Transactional
+    public Autor save(AutorDTO autorDTO) {
+        // Cria endereço, mas não salva ainda
+        EnderecoSalvarDTO enderecoSalvarDTO = enderecoService.criarEndereco(
+                autorDTO.cep(),
+                autorDTO.numeroEndereco(),
+                autorDTO.complementoEndereco());
+
+        Endereco endereco = enderecoMapper.toEntity(enderecoSalvarDTO);
+        Autor autor = mapper.toEntity(autorDTO, endereco);
         validator.validar(autor);
         return repository.save(autor);
     }

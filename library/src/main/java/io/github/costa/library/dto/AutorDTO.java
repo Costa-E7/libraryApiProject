@@ -17,6 +17,15 @@ public record AutorDTO(
         @Size(max = 50, min = 2, message = "Campo fora do tamanho padrão")
         String nacionalidade,
 
+        @NotBlank(message = "CEP é obrigatório")
+        @Pattern(regexp = "\\d{5}-?\\d{3}", message = "CEP inválido. Use o formato 00000-000")
+        String cep,
+
+        @NotBlank(message = "Número da casa é obrigatório")
+        String numeroEndereco,
+
+        String complementoEndereco,
+
         UUID idEndereco
 ) {
 }
