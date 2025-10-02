@@ -42,7 +42,6 @@ public class Autor {
     private List<Livro> livros;
 
     @OneToOne(
-            fetch = FetchType.LAZY,
             cascade = CascadeType.PERSIST
     )
     @JsonBackReference

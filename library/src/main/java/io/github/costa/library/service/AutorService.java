@@ -93,11 +93,11 @@ public class AutorService {
     }
 
     public void updateAdres(String autorId, EnderecoRequestDTO dto) {
-        Autor autor = this.getOne(autorId).orElse(null);
-        if (autor == null)
-            throw new IllegalArgumentException("Autor inescistente para ter endereço atualizado");
+        Optional<Autor> autor = this.getOne(autorId);
+        if (autor.isEmpty())
+            throw new OperacaoNaoPermitidaException("Autor inexistente para ter endereço atualizado");
 
-        enderecoService.update(dto);
+        enderecoService.update(dto, autor.get().getEndereco().getId());
 
 
     }

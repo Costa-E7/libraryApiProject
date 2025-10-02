@@ -1,13 +1,10 @@
-package io.github.costa.library.controler;
+package io.github.costa.library.service;
 
-import io.github.costa.library.controler.mappers.AutorMapper;
 import io.github.costa.library.controler.mappers.EnderecoMapper;
-import io.github.costa.library.dto.EnderecoRequestDTO;
 import io.github.costa.library.dto.EnderecoSalvarDTO;
 import io.github.costa.library.dto.EnderecoViaCepDTO;
 import io.github.costa.library.exceptions.OperacaoNaoPermitidaException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

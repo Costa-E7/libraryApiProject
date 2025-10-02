@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class EnderecoController implements GenericController {
     private final AutorService autorService;
 
-    @PutMapping("/autor/{autorId}/endereco")
+    @PutMapping("/autores/{autorId}/endereco")
     public ResponseEntity<Void> updateAddress(
             @PathVariable("autorId") String autorId,
             @RequestBody @Valid EnderecoRequestDTO dto

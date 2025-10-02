@@ -4,6 +4,7 @@ package io.github.costa.library.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.UUID;
 
@@ -39,6 +40,7 @@ public class Endereco {
 
     @OneToOne(mappedBy = "endereco")
     @JsonBackReference
+    @ToString.Exclude
     private Autor autor;
 
 }

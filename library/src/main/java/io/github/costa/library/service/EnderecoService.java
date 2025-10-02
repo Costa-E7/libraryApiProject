@@ -1,17 +1,14 @@
 package io.github.costa.library.service;
 
-import io.github.costa.library.controler.EnderecoController;
-import io.github.costa.library.controler.ViaCepService;
 import io.github.costa.library.controler.mappers.EnderecoMapper;
 import io.github.costa.library.dto.EnderecoRequestDTO;
 import io.github.costa.library.dto.EnderecoSalvarDTO;
-import io.github.costa.library.dto.EnderecoViaCepDTO;
 import io.github.costa.library.model.Endereco;
 import io.github.costa.library.repository.EnderecoRepository;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -27,8 +24,12 @@ public class EnderecoService {
         repository.delete(endereco);
     }
 
-    public void update(EnderecoRequestDTO dto) {
+
+
+    public void update(EnderecoRequestDTO dto, UUID id) {
         EnderecoSalvarDTO enderecoSalvarDTO = viaCepService.buscar(dto.cep(), dto.numeroEndereco(), dto.complemento());
-        repository.save(mapper.toEntity(enderecoSalvarDTO));
+        Endereco endereco = mapper.toEntity(enderecoSalvarDTO);
+        endereco.setId(id);
+        repository.save(endereco);
     }
 }

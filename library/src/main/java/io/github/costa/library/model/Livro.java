@@ -39,9 +39,7 @@ public class Livro {
     @Column(name = "preco", precision = 18, scale = 2)
     private BigDecimal preco;
 
-    @ManyToOne(
-        fetch = FetchType.LAZY
-    )
+    @ManyToOne()
     @JsonBackReference
     @JoinColumn(name = "id_autor")
     private Autor autor;
