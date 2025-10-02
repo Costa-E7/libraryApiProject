@@ -59,6 +59,7 @@ public class AutorService {
         return repository.findById(idAutor);
     }
 
+    @Transactional
     public void delete(Autor autor) {
         if (possuiLivro(autor)) {
             throw new OperacaoNaoPermitidaException(
