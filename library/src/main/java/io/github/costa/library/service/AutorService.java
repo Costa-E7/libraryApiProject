@@ -3,6 +3,7 @@ package io.github.costa.library.service;
 import io.github.costa.library.controler.mappers.AutorMapper;
 import io.github.costa.library.controler.mappers.EnderecoMapper;
 import io.github.costa.library.dto.AutorDTO;
+import io.github.costa.library.dto.EnderecoRequestDTO;
 import io.github.costa.library.dto.EnderecoSalvarDTO;
 import io.github.costa.library.exceptions.OperacaoNaoPermitidaException;
 import io.github.costa.library.model.Autor;
@@ -91,4 +92,13 @@ public class AutorService {
         return livroRepository.existsByAutor(autor);
     }
 
+    public void updateAdres(String autorId, EnderecoRequestDTO dto) {
+        Autor autor = this.getOne(autorId).orElse(null);
+        if (autor == null)
+            throw new IllegalArgumentException("Autor inescistente para ter endereço atualizado");
+
+        enderecoService.update(dto);
+
+
+    }
 }
