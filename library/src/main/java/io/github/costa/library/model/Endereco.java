@@ -38,6 +38,7 @@ public class Endereco {
     private  String numero;
 
     @OneToOne(mappedBy = "endereco")
+    @JsonBackReference
     private Autor autor;
 
 }

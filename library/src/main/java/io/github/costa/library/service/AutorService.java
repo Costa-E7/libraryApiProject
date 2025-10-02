@@ -33,22 +33,22 @@ public class AutorService {
 
     @Transactional
     public Autor save(AutorDTO autorDTO) {
-        // Cria endereço, mas não salva ainda
-        EnderecoSalvarDTO enderecoSalvarDTO = enderecoService.criarEndereco(
+        EnderecoSalvarDTO enderecoSalvarDTO = enderecoService.createAddress(
                 autorDTO.cep(),
                 autorDTO.numeroEndereco(),
                 autorDTO.complementoEndereco());
 
         Endereco endereco = enderecoMapper.toEntity(enderecoSalvarDTO);
         Autor autor = mapper.toEntity(autorDTO, endereco);
-        validator.validar(autor);
+        validator.validate(autor);
         return repository.save(autor);
     }
 
-    public void Update(Autor autor) {
+    public void Update(Autor autor, Endereco endereco) {
         if (autor.getId() == null)
             throw new IllegalArgumentException("Para Atualizar é necessario que o autor já estaja salvo");
-        validator.validar(autor);
+        validator.validate(autor);
+        autor.setEndereco(endereco);
         repository.save(autor);
     }
 
@@ -65,6 +65,7 @@ public class AutorService {
             );
         }
         repository.delete(autor);
+        enderecoService.delete(autor.getEndereco());
     }
 
     //busca usando o example do jpa.

@@ -16,12 +16,16 @@ public class EnderecoService {
     private final EnderecoMapper mapper;
     private final EnderecoRepository repository;
 
-    public EnderecoSalvarDTO criarEndereco(String cep, String numero, String complemento) {
+    public EnderecoSalvarDTO createAddress(String cep, String numero, String complemento) {
         EnderecoViaCepDTO endersoViaCep = viaCepService.buscar(cep);
         return  mapper.toDTO(endersoViaCep, numero, complemento);
 
     }
     public Endereco salvar(Endereco endereco) {
         return repository.save(endereco);
+    }
+
+    public void delete(Endereco endereco) {
+        repository.delete(endereco);
     }
 }

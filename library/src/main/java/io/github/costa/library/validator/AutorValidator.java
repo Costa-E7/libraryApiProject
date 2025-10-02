@@ -15,7 +15,7 @@ public class AutorValidator {
         this.repository = repository;
     }
 
-    public void validar(Autor autor){
+    public void validate(Autor autor){
         if (exist(autor)){
             throw new RegistroDuplicadoException("Autor já cadastrado");
         }
@@ -28,6 +28,6 @@ public class AutorValidator {
 
         if (autor.getId() == null) return autorEncontrado.isPresent();
 
-        return !autor.getId().equals(autorEncontrado.get().getId()) && autorEncontrado.isPresent();
+        return autorEncontrado.isPresent() && !autor.getId().equals(autorEncontrado.get().getId());
     }
 }

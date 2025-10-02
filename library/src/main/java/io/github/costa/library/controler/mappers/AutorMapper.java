@@ -1,6 +1,8 @@
 package io.github.costa.library.controler.mappers;
 
+import io.github.costa.library.dto.AtualizacaoAutor;
 import io.github.costa.library.dto.AutorDTO;
+import io.github.costa.library.dto.ResultadoAutorDTO;
 import io.github.costa.library.model.Autor;
 import io.github.costa.library.model.Endereco;
 import io.github.costa.library.repository.EnderecoRepository;
@@ -22,5 +24,10 @@ public abstract class AutorMapper {
     @Mapping(target = "endereco", source = "endereco")
     public abstract Autor toEntity(AutorDTO dto, Endereco endereco);
 
+    public abstract Autor toEntity(AtualizacaoAutor dto) ;
+
     public  abstract  AutorDTO toDTO(Autor autor);
+
+    public  abstract ResultadoAutorDTO toResultadoDTO(Autor autor);
+
 }

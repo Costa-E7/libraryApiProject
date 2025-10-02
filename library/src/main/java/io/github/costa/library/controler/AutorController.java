@@ -1,6 +1,8 @@
 package io.github.costa.library.controler;
 
 import io.github.costa.library.controler.mappers.AutorMapper;
+import io.github.costa.library.dto.AtualizacaoAutor;
+import io.github.costa.library.dto.ResultadoAutorDTO;
 import io.github.costa.library.service.AutorService;
 import io.github.costa.library.dto.AutorDTO;
 import io.github.costa.library.model.Autor;
@@ -23,19 +25,19 @@ public class AutorController implements GenericController {
     private final AutorMapper mapper;
 
     @PostMapping
-    public ResponseEntity<Void> salvar(@RequestBody @Valid AutorDTO autorDTO) {
+    public ResponseEntity<Void> save(@RequestBody @Valid AutorDTO autorDTO) {
         Autor autor = service.save(autorDTO);
         URI location = gerarHeaderLocation(autor.getId());
         return ResponseEntity.created(location).build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<AutorDTO> findOne(@PathVariable("id") String id) {
+    public ResponseEntity<ResultadoAutorDTO> getOne(@PathVariable("id") String id) {
         Optional<Autor> autorOptional = service.getOne(id);
         return service
                 .getOne(id)
                 .map(autor -> {
-                    AutorDTO dto = mapper.toDTO(autor);
+                    ResultadoAutorDTO dto = mapper.toResultadoDTO(autor);
                     return ResponseEntity.ok(dto);
                 }).orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -50,26 +52,26 @@ public class AutorController implements GenericController {
     }
 
     @GetMapping
-    public ResponseEntity<List<AutorDTO>> getByNomeAndNacionalidade(
+    public ResponseEntity<List<ResultadoAutorDTO>> getByNomeAndNacionalidade(
             @RequestParam(value = "nome", required = false) String nome,
             @RequestParam(value = "nacionalidade", required = false) String nacionalidade) {
         List<Autor> resultado = service.search(nome, nacionalidade);
-        List<AutorDTO> lista = resultado.stream().map(mapper::toDTO
+        List<ResultadoAutorDTO> lista = resultado.stream().map(mapper::toResultadoDTO
         ).toList();
         return ResponseEntity.ok(lista);
 
     }
 
-    @PatchMapping("{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<Void> update(
             @PathVariable("id") String id,
-            @RequestBody @Valid AutorDTO dto
+            @RequestBody @Valid AtualizacaoAutor dto
     ) {
         Optional<Autor> autorOptional = service.getOne(id);
         if (autorOptional.isEmpty()) return ResponseEntity.notFound().build();
         Autor autor = mapper.toEntity(dto);
         autor.setId(UUID.fromString(id));
-        service.Update(autor);
+        service.Update(autor, autorOptional.get().getEndereco());
         return ResponseEntity.noContent().build();
     }
 }
