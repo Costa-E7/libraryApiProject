@@ -5,7 +5,7 @@ import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public record AtualizacaoAutor(
+public record AtualizacaoAutorDTO(
         UUID id,
         @NotBlank(message = "Campo obrigatorio")
         @Size(max = 100, min = 2, message = "Campo fora do tamanho padrão")

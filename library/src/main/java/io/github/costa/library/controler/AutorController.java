@@ -1,7 +1,7 @@
 package io.github.costa.library.controler;
 
 import io.github.costa.library.controler.mappers.AutorMapper;
-import io.github.costa.library.dto.AtualizacaoAutor;
+import io.github.costa.library.dto.AtualizacaoAutorDTO;
 import io.github.costa.library.dto.ResultadoAutorDTO;
 import io.github.costa.library.service.AutorService;
 import io.github.costa.library.dto.AutorDTO;
@@ -65,7 +65,7 @@ public class AutorController implements GenericController {
     @PatchMapping("/{id}")
     public ResponseEntity<Void> update(
             @PathVariable("id") String id,
-            @RequestBody @Valid AtualizacaoAutor dto
+            @RequestBody @Valid AtualizacaoAutorDTO dto
     ) {
         Optional<Autor> autorOptional = service.getOne(id);
         if (autorOptional.isEmpty()) return ResponseEntity.notFound().build();
